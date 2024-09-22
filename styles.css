@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.arcade-stand {
+    position: relative;
+    width: 716.16px;
+    height: 1037.4px;
+    margin: auto;
+    margin-top: 56px;
+}
+
+.rectangle-1 {
+    position: absolute;
+    z-index: 6;
+    width: 480.887px;
+    height: 301.847px;
+    flex-shrink: 0;
+    background-color: #000;
+    border: 11.63px solid #F57C61;
+    border-radius: 32px 32px 0px 0px;
+    opacity: 0.1;
+}
+
+.rectangle-2 {
+    position: absolute;
+    z-index: 5;
+    top: -18px;
+    left: -16px;
+    width: 514.5px;
+    height: 320px;
+    border-radius: 56px 56px 0px 0px;
+    border: 12px solid #000;
+    background: #F57C61;
+}
+
+.rectangle-3_wrapper {
+    position: absolute;
+    top: 314px;
+    left: -84px;
+    width: 650px;
+    height: 310px;
+    padding: 11.63px; 
+    box-sizing: content-box; 
+    background-color: black;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    border-radius: 0px 0px 16px 16px;
+}
+
+.rectangle-3 {
+    width: 100%; /* Full width inside the wrapper */
+    height: 100%;
+    background-color: #f57c61;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+}
+
+.rectangle-4 {
+    position: absolute;
+    z-index: 3;
+    top: 800px;
+    width: 716.16px;
+    height: 297.969px;
+    flex-shrink: 0;
+    background-color: #F57C61;
+    stroke-width: 11.634px;
+    stroke: #000;
+}
+
+.rectangle-5 {
+    position: absolute;
+    z-index: 2;
+    top: 800px;
+    width: 626.963px;
+    height: 60.757px;
+    flex-shrink: 0;
+    background-color: #000;
+    opacity: 0.2;
+}
+
+.rectangle-6 {
+    position: absolute;
+    z-index: 1;
+    top: 800px;
+    width: 626.963px;
+    height: 339.982px;
+    flex-shrink: 0;
+    background-color: #F57C61;
+    stroke-width: 11.634px;
+    stroke: #000;
+}
