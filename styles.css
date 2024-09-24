@@ -50,6 +50,7 @@
 }
 
 .rectangle-3 {
+    position: relative;
     width: 100%; 
     height: 100%;
     background-color: #f57c61;
@@ -102,4 +103,27 @@
     height: 100%;
     background-color: #f57c61;
     clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);
+}
+
+.square-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 560px;
+    height: 320px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+}
+
+.whac-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
