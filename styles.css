@@ -146,6 +146,16 @@
     overflow: hidden;
 }
 
+.mole-wrapper_active {
+    position: absolute; 
+    top: -90px; /* Adjust this in js for whac */
+    left: 50%;
+    transform: translateX(-50%); 
+    height: 148px; /* Adjust this in js for whac code */
+    width: 100%;
+    overflow: hidden;
+}
+
 .mole {
     position: absolute;
     top: 0;
@@ -154,7 +164,33 @@
     width: auto; 
 }
 
+.timer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 
+.timer {
+    color: #000;
+    font-family: "Patrick Hand";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 
+.arcade-text {
+    position: absolute;
+    top: 30px; /* Adjust this in js for whac */
+    left: 50%;
+    transform: translateX(-50%); 
+    color: #000;
+    font-family: "Patrick Hand";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 
 
