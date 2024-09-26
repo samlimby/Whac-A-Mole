@@ -1,112 +1,144 @@
-const firstMole = document.getElementById("mole1");
-let firstMoleScore = false;
+let mole1 = {
+    element: document.getElementById("mole1"),
+    score: false
+};
 
-const secondMole = document.getElementById("mole2");
-let secondMoleScore = false;
+let mole2 = {
+    element: document.getElementById("mole2"),
+    score: false
+};
 
-const thirdMole = document.getElementById("mole3");
-let thirdMoleScore = false;
+let mole3 = {
+    element: document.getElementById("mole3"),
+    score: false
+};
 
-const fourthMole = document.getElementById("mole4");
-let fourthMoleScore = false;
+let mole4 = {
+    element: document.getElementById("mole4"),
+    score: false
+};
 
-const fifthMole = document.getElementById("mole5");
-let fifthMoleScore = false;
+let mole5 = {
+    element: document.getElementById("mole5"),
+    score: false
+};
 
-const sixthMole = document.getElementById("mole6");
-let sixthMoleScore = false;
+let mole6 = {
+    element: document.getElementById("mole6"),
+    score: false
+};
 
 const timerText = document.getElementById("timer-text");
 
 let counter = 0;
 let gameStatus = true;
+let moleArray = [];
+let activeArray = [];
+
+moleArray.push(mole1, mole2, mole3, mole4, mole5, mole6);
+
+for (let i = 0; i < moleArray.length; i++) {
+
+    const randomValue = Math.floor(Math.random() * moleArray.length);
+    const randomItem = moleArray[randomValue];
+    console.log(randomItem);
+
+
+    moleRandomizer(randomItem)
+    // setInterval(function() {
+    //     moleRandomizer(randomItem);
+    // }, 1000); 
+
+}
+
+
 
 // eventlisteners live here
 
-firstMole.addEventListener("click", function(){
+mole1.element.addEventListener("click", function(){
     console.log("first mole has been clicked - beware!");
-    if (!firstMoleScore) {
-        firstMoleScore = true;
-        moleStateChange(firstMole, firstMoleScore)
+    if (!mole1.score) {
+        mole1.score = true;
+        moleStateChange(mole1.element, mole1.score)
         return;
     }
 
-    if (firstMoleScore) {
-        firstMoleScore = false;
-        moleStateChange(firstMole, firstMoleScore)
+    if (mole1.score) {
+        mole1.score = false;
+        moleStateChange(mole1.element, mole1.score)
     }
     
 });
 
-secondMole.addEventListener("click", function(){
+mole2.element.addEventListener("click", function(){
     console.log("second mole has been clicked - beware!");
-    if (!secondMoleScore) {
-        secondMoleScore = true;
-        moleStateChange(secondMole, secondMoleScore)
+    if (!mole2.score) {
+        mole2.score = true;
+        moleStateChange(mole2.element, mole2.score)
         return;
     }
 
-    if (secondMoleScore) {
-        secondMoleScore = false;
-        moleStateChange(secondMole, secondMoleScore)
+    if (mole2.score) {
+        mole2.score = false;
+        moleStateChange(mole2.element, mole2.score)
     }
 
 });
 
-thirdMole.addEventListener("click", function(){
+mole3.element.addEventListener("click", function(){
     console.log("third mole has been clicked - beware!");
-    if (!thirdMoleScore) {
-        thirdMoleScore = true;
-        moleStateChange(thirdMole, thirdMoleScore)
+    if (!mole3.score) {
+        mole3.score = true;
+        moleStateChange(mole3.element, mole3.score)
         return;
     }
 
-    if (thirdMoleScore) {
-        thirdMoleScore = false;
-        moleStateChange(thirdMole, thirdMoleScore)
+    if (mole3.score) {
+        mole3.score = false;
+        moleStateChange(mole3.element, mole3.score)
     }
 
 });
 
-fourthMole.addEventListener("click", function(){
+mole4.element.addEventListener("click", function(){
     console.log("fourth mole has been clicked - beware!");
-    if (!fourthMoleScore) {
-        fourthMoleScore = true;
-        moleStateChange(fourthMole, fourthMoleScore)
+    if (!mole4.score) {
+        mole4.score = true;
+        moleStateChange(mole4.element, mole4.score)
         return;
     }
 
-    if (fourthMoleScore) {
-        fourthMoleScore = false;
-        moleStateChange(fourthMole, fourthMoleScore)
+    if (mole4.score) {
+        mole4.score = false;
+        moleStateChange(mole4.element, mole4.score)
     }
 });
 
-fifthMole.addEventListener("click", function(){
+mole5.element.addEventListener("click", function(){
     console.log("fifth mole has been clicked - beware!");
-    if (!fifthMoleScore) {
-        fifthMoleScore = true;
-        moleStateChange(fifthMole, fifthMoleScore)
+    if (!mole5.score) {
+        mole5.score = true;
+        moleStateChange(mole5.element, mole5.score)
         return;
     }
 
-    if (fifthMoleScore) {
-        fifthMoleScore = false;
-        moleStateChange(fifthMole, fifthMoleScore)
+    if (mole5.score) {
+        mole5.score = false;
+        moleStateChange(mole5.element, mole5.score)
     }
 });
 
-sixthMole.addEventListener("click", function(){
+mole6.element.addEventListener("click", function(){
     console.log("sixth mole has been clicked - beware!");
-    if (!sixthMoleScore) {
-        sixthMoleScore = true;
-        moleStateChange(sixthMole, sixthMoleScore)
+    if (!mole6.score) {
+        mole6.score = true;
+        moleStateChange(mole6.element, mole6.score)
         return;
     }
 
-    if (sixthMoleScore) {
-        sixthMoleScore = false;
-        moleStateChange(sixthMole, sixthMoleScore)
+    if (mole6.score) {
+        mole6.score = false;
+        moleStateChange(mole6.element, mole6.score)
     }
 });
 
@@ -116,25 +148,44 @@ function moleStateChange(mole, moleScore) {
     
     if (moleScore) {
         mole.classList.replace("mole-wrapper", "mole-wrapper_active")
-        moleScore = true;
+        mole.score = true;
     } else {
         mole.classList.replace("mole-wrapper_active", "mole-wrapper")
         moleScore = false;
     }
 };
 
-function timerCounter() {
+function moleRandomizer(mole) {
 
-    if (gameStatus) {
-        counter++;
-        timerText.textContent = `
-            ${counter}
-        `;
+
+    if (activeArray.length < 2) {
+        activeArray.push(mole)
+        mole.score = true;
+        moleStateChange(mole.element, mole.score)
+        let index = moleArray.indexOf(mole);
+        console.log(index)
+        moleArray.splice(index, 2, mole);
     }
+
+    console.log(activeArray)
+
 }
 
-setInterval(timerCounter, 1000)
-timerCounter()
+console.log(activeArray)
+console.log(moleArray)
+
+// function timerCounter() {
+
+//     if (gameStatus) {
+//         counter++;
+//         timerText.textContent = `
+//             ${counter}
+//         `;
+//     }
+// }
+
+// setInterval(timerCounter, 1000)
+// timerCounter()
 
 
 
