@@ -1,55 +1,62 @@
+let statusArray = [false, true];
+
 let mole1 = {
     element: document.getElementById("mole1"),
-    score: false
+    score: statusArray[0]
 };
 
 let mole2 = {
     element: document.getElementById("mole2"),
-    score: false
+    score: statusArray[0]
 };
 
 let mole3 = {
     element: document.getElementById("mole3"),
-    score: false
+    score: statusArray[0]
 };
 
 let mole4 = {
     element: document.getElementById("mole4"),
-    score: false
+    score: statusArray[0]
 };
 
 let mole5 = {
     element: document.getElementById("mole5"),
-    score: false
+    score: statusArray[0]
 };
 
 let mole6 = {
     element: document.getElementById("mole6"),
-    score: false
+    score: statusArray[0]
 };
 
 const timerText = document.getElementById("timer-text");
 
 let counter = 0;
 let gameStatus = true;
+let gameSpeed = 10;
 let moleArray = [];
 let activeArray = [];
 
 moleArray.push(mole1, mole2, mole3, mole4, mole5, mole6);
+console.log(moleArray)
 
 for (let i = 0; i < moleArray.length; i++) {
 
     const randomValue = Math.floor(Math.random() * moleArray.length);
     const randomItem = moleArray[randomValue];
-    console.log(randomItem);
+    const itemScore = randomItem.score
 
+    if (!itemScore) {
+        setInterval(function() {
+            randomMole(randomItem);
+            console.log(moleArray)
+        }, 2000); 
+    }
 
-    moleRandomizer(randomItem)
-    // setInterval(function() {
-    //     moleRandomizer(randomItem);
-    // }, 1000); 
-
+    // randomMole(randomItem);
 }
+
 
 
 
@@ -144,48 +151,30 @@ mole6.element.addEventListener("click", function(){
 
 // relevant functions 
 
-function moleStateChange(mole, moleScore) {
-    
-    if (moleScore) {
-        mole.classList.replace("mole-wrapper", "mole-wrapper_active")
-        mole.score = true;
-    } else {
-        mole.classList.replace("mole-wrapper_active", "mole-wrapper")
-        moleScore = false;
-    }
-};
+function randomMole(mole) {
 
-function moleRandomizer(mole) {
-
-
-    if (activeArray.length < 2) {
-        activeArray.push(mole)
-        mole.score = true;
-        moleStateChange(mole.element, mole.score)
-        let index = moleArray.indexOf(mole);
-        console.log(index)
-        moleArray.splice(index, 2, mole);
+    if (!mole.score) {
+        const index = Math.round(Math.random());
+        console.log(index);
+        mole.score = statusArray[index];         
     }
 
-    console.log(activeArray)
+    moleStateChange(mole.element, mole.score)
 
 }
 
-console.log(activeArray)
-console.log(moleArray)
 
-// function timerCounter() {
 
-//     if (gameStatus) {
-//         counter++;
-//         timerText.textContent = `
-//             ${counter}
-//         `;
-//     }
-// }
-
-// setInterval(timerCounter, 1000)
-// timerCounter()
+function moleStateChange(moleElement, moleScore) {
+    
+    if (moleScore) {
+        moleElement.classList.replace("mole-wrapper", "mole-wrapper_active");
+        moleScore = true;
+    } else {
+        moleElement.classList.replace("mole-wrapper_active", "mole-wrapper")
+        moleScore = false;
+    }
+};
 
 
 
